@@ -1,0 +1,119 @@
+/* FA POPUP LIGHT THEME */
+#fa_popup_overlay {
+  background-color:#FFF;
+  opacity:0.8;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+#fa_popup {
+  font-size:10px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  background:#FFF;
+  border-radius:3px;
+  position:fixed;
+  top:50px;
+  left:12%;
+  right:12%;
+  bottom:30px;
+  padding:3px;
+  width:auto;
+  overflow:hidden;
+  box-shadow:0px 3px 10px rgba(34, 25, 25, 0.4);
+}
+
+#fa_popup_content {
+  border:1px solid #EEE;
+  border-radius:3px;
+  padding:3px;
+  overflow:auto;
+  height:90%;
+}
+
+.fa_popup_title {
+  color:#333;
+  font-size:12px;
+  font-weight:bold;
+  font-family:"Trebuchet MS", Arial, Verdana, Sans-serif;
+  border-bottom:1px solid #333;
+  margin:8px 0;
+  padding-bottom:2px;
+}
+
+input.fa_popup_button, a.fa_popup_button {
+  color:#FFF !important;
+  font-size:12px;
+  font-weight:bold;
+  text-indent:0;
+  background-color:#39C;
+  border:none;
+  border-bottom:2px solid #17A;
+  border-radius:3px;
+  display:inline-block;
+  line-height:20px;
+  padding:0 6px;
+  cursor:pointer;
+  transition:300ms;
+}
+
+input.fa_popup_close {
+  background-color:#E53;
+  border-color:#C31;
+  min-width:25px;
+  position:absolute;
+  top:2px;
+  right:2px;
+}
+
+input.fa_popup_button:hover, a.fa_popup_button:hover {
+  background-color:#333;
+  border-color:#111;
+}
+
+input.fa_popup_button:focus, a.fa_popup_button:active, a.fa_popup_button:focus {
+  background-color:#EB5;
+  border-color:#C93;
+  outline:none;
+}
+
+.fa_popup_error {
+  color:#966;
+  font-size:12px;
+  background:#FEE;
+  border:1px solid #ECC;
+  border-bottom-width:2px;
+  border-radius:3px;
+  padding:9px 6px;
+  margin:6px;
+}
+
+.fa_popup_friends {
+  background:#EEE;
+  border:1px solid #DDD;
+  border-bottom-width:2px;
+  border-radius:3px;
+  display:inline-block;
+  padding:3px;
+  margin:3px;
+  float:none;
+  overflow:hidden;
+}
+
+#fa_popup .add_success { color:#8B5 }
+#fa_popup .deny_success { color:#E53 }
+#fa_popup .add_failed { color:#EB5 }
+
+.fa_popup_loading {
+  color:#333;
+  font-size:14px;
+  font-weight:bold;
+  text-align:center;
+  padding:25px;
+}
+
+/* data corrections */
+#fa_popup_content > td { display:block }
+#fa_popup.pun tbody.statused span.status { position:static }
