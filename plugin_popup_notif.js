@@ -55,7 +55,7 @@ $(function(){$(function(){
         // PMs
         if (/\/privmsg/.test(node.href) && FA.Popup.notif_config.PMs) {
           FA.Popup.open('/privmsg?folder=inbox&mode=read&p=' + store[id].text.msg_id + '&nid=' + id, FA.Popup.lang.viewing_pm + sender, function(data, popup) {
-            var PM = $('form[action^="/privmsg"]:has(.post)', data)[0];
+            var PM = $('form[action^="/privmsg"]:has(.postbody)', data)[0];
             if (PM) popup.appendChild(PM);
             else popup.innerHTML = '<div class="fa_popup_error">' + FA.Popup.lang.error_no_pm + '</div>';
             
