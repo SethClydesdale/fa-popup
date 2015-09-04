@@ -48,6 +48,7 @@ input.fa_popup_button, a.fa_popup_button {
   font-size:12px;
   font-weight:bold;
   text-indent:0;
+  text-decoration:none !important;
   background-color:#39C;
   border:none;
   border-bottom:2px solid #17A;
