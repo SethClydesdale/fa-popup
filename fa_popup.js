@@ -1,14 +1,8 @@
 // Main script for addition of Popup to FA object.
-$(function() {
+(function() {
   if (!window.FA) window.FA = {};
   if (FA.Popup) {
     if (window.console) console.warn('FA.Popup has already been initialized.');
-    return;
-  }
-  
-  var version = $('.bodylinewidth')[0] ? 0 : document.getElementById('wrap') ? 1 : $('.pun')[0] ? 2 : document.getElementById('ipbwrapper') ? 3 : 'badapple';
-  if (version == 'badapple') {
-    if (window.console) console.error('Your forum version is not optimized for this plugin.');
     return;
   }
   
@@ -26,14 +20,28 @@ $(function() {
     active : false,
     
     forum : {
-      version : version,
-      content : version ? '#main-content' : '#content-container > table > tbody > tr > td[width="100%"]',
-      pages : ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version]
+      version : null,
+      content : null,
+      pages : null
     },
     
     /* open a new popup window */
     open : function(href, title, callback) {
-      if (FA.Popup.active) FA.Popup.close();
+      // data ready check
+      if (FA.Popup.forum.pages == null) {
+        FA.Popup.queue = window.setTimeout(function() {
+          FA.Popup.open(href, title, callback);
+        }, 250);
+        return
+      }
+      
+      // version check
+      if (FA.Popup.forum.version == 'badapple') {
+        if (window.console) console.error('Your forum version is not optimized for this plugin.');
+        return;
+      }
+      
+      if (FA.Popup.active) FA.Popup.close(); // close opened windows
       
       var box = document.createElement('DIV'),
           overlay = document.createElement('DIV'),
@@ -121,7 +129,15 @@ $(function() {
         content.innerHTML = '<div class="fa_popup_error">' + FA.Popup.lang.error_connection + '</div>' ;
       });
       return false;
-    }
-
+    },
+    
+    queue : null
   };
-});
+  
+  $(function() {
+    var version = $('.bodylinewidth')[0] ? 0 : document.getElementById('wrap') ? 1 : $('.pun')[0] ? 2 : document.getElementById('ipbwrapper') ? 3 : 'badapple';
+    FA.Popup.forum.version = version;
+    FA.Popup.forum.content = version ? '#main-content' : '#content-container > table > tbody > tr > td[width="100%"]';
+    FA.Popup.forum.pages = ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version];
+  });
+})();
