@@ -45,7 +45,7 @@ $(function(){$(function(){
   if (notif) {
     $(notif).click(function(e) {
       var node = e.target, store, id, sender, more = document.createElement('DIV');
-      more.style.textAlign = 'center';
+      more.className = 'fa_popup_more';
       
       if (node.tagName == 'A') {
         id = node.parentNode.parentNode.parentNode.id.slice(1); // notif id
@@ -142,12 +142,7 @@ $(function(){$(function(){
         else if (/\/report/.test(node.href) && FA.Popup.notif_config.Reports) {
           FA.Popup.open(node.href, FA.Popup.lang.viewing_report, function(data, popup) {
             var report = $(FA.Popup.forum.content, data)[0];
-            if (report) {
-              popup.appendChild(report);
-              
-              var page = $(FA.Popup.forum.pages, popup);
-              if (page[0]) $(page).click(FA.Popup.getPage);
-            }
+            if (report) popup.appendChild(report);
             else popup.innerHTML = '<div class="fa_popup_error">' + FA.Popup.lang.error_no_report + '</div>';
             
             more.innerHTML = '<a href="' + node.href + '" class="fa_popup_button">' + FA.Popup.lang.more_report + '</a>';
