@@ -1,5 +1,13 @@
 // Main script for addition of Popup to FA object.
 (function() {
+  var version = 0;
+  /* COMPATIBLE FORUM VERSIONS
+  ** 0 : PHPBB2
+  ** 1 : PHPBB3
+  ** 2 : PUNBB
+  ** 3 : INVISION
+  */
+  
   if (!window.FA) window.FA = {};
   if (FA.Popup) {
     if (window.console) console.warn('FA.Popup has already been initialized.');
@@ -20,9 +28,9 @@
     active : false,
     
     forum : {
-      version : null,
-      content : null,
-      pages : null
+      version : version,
+      content : version ? '#main-content' : '#content-container > table > tbody > tr > td[width="100%"]',
+      pages : ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination:not(strong) span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version]
     },
     
     /* open a new popup window */
@@ -133,11 +141,4 @@
     
     queue : null
   };
-  
-  $(function() {
-    var version = $('.bodylinewidth')[0] ? 0 : document.getElementById('wrap') ? 1 : $('.pun')[0] ? 2 : document.getElementById('ipbwrapper') ? 3 : 'badapple';
-    FA.Popup.forum.version = version;
-    FA.Popup.forum.content = version ? '#main-content' : '#content-container > table > tbody > tr > td[width="100%"]';
-    FA.Popup.forum.pages = ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination:not(strong) span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version];
-  });
 })();
