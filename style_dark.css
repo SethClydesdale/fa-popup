@@ -115,6 +115,12 @@ input.fa_popup_button:focus, a.fa_popup_button:active, a.fa_popup_button:focus {
   padding:25px;
 }
 
+.fa_popup_more {
+  text-align:center;
+  margin:3px;
+  clear:both;
+}
+
 /* data corrections */
 #fa_popup_content > td { display:block }
 #fa_popup.pun tbody.statused span.status { position:static }
