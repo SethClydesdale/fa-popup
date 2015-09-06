@@ -138,6 +138,6 @@
     var version = $('.bodylinewidth')[0] ? 0 : document.getElementById('wrap') ? 1 : $('.pun')[0] ? 2 : document.getElementById('ipbwrapper') ? 3 : 'badapple';
     FA.Popup.forum.version = version;
     FA.Popup.forum.content = version ? '#main-content' : '#content-container > table > tbody > tr > td[width="100%"]';
-    FA.Popup.forum.pages = ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version];
+    FA.Popup.forum.pages = ['.gensmall:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"], .nav:has(.sprite-arrow_subsilver_left, .sprite-arrow_subsilver_right) a[href^="/"]', '.pagination:not(strong) span a', '.paging a[href^="/"]', '.pagination a[href^="/"]'][version];
   });
 })();
