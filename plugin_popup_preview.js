@@ -2,7 +2,7 @@
 $(function() {
   if (!window.FA.Popup || !document.post || !document.post.message || !document.post.mode) return;
   
-  document.post.preview.onclick = function() {
+  document.post.preview.onclick = function(e) {
     var mode = document.post.mode.value;
     
     if ($.sceditor) document.post.message.value = $(document.post.message).sceditor('instance').val();
@@ -19,6 +19,6 @@ $(function() {
       }
     });
     
-    return false;
+    e.preventDefault();
   }
 });
