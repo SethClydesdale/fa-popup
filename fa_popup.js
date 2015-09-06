@@ -35,20 +35,6 @@
     
     /* open a new popup window */
     open : function(href, title, callback) {
-      // data ready check
-      if (FA.Popup.forum.pages == null) {
-        FA.Popup.queue = window.setTimeout(function() {
-          FA.Popup.open(href, title, callback);
-        }, 250);
-        return
-      }
-      
-      // version check
-      if (FA.Popup.forum.version == 'badapple') {
-        if (window.console) console.error('Your forum version is not optimized for this plugin.');
-        return;
-      }
-      
       if (FA.Popup.active) FA.Popup.close(); // close opened windows
       
       var box = document.createElement('DIV'),
@@ -137,8 +123,7 @@
         content.innerHTML = '<div class="fa_popup_error">' + FA.Popup.lang.error_connection + '</div>' ;
       });
       return false;
-    },
+    }
     
-    queue : null
   };
 })();
