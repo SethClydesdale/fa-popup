@@ -1,6 +1,6 @@
 // Main script for addition of Popup to FA object.
 (function() {
-  var version = 0;
+  var version = 1;
   /* COMPATIBLE FORUM VERSIONS
   ** 0 : PHPBB2
   ** 1 : PHPBB3
