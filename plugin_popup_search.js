@@ -7,7 +7,7 @@ $(function() {
     
     FA.Popup.open('/search?' + $(this).serialize(), 'Searching' + (keywords.value ? ' : ' + keywords.value : ''));
     
-    this.keywords.blur();
+    keywords.blur();
     e.preventDefault();
   });
 });
